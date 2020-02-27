@@ -8,21 +8,20 @@ import {
 export default class HelloWorld extends Component {
   render() {
     return (
-      <View style={styles.center}>
-        <Text style={styles.red}>
-          Hello Event_Name
-        </Text>
+      <View style={styles.centerView}>
+        <Text style={styles.red}>Hello Event Name</Text>
       </View>
     );
   }
 }
 
 const styles = StyleSheet.create({
-  red: {
-    color: 'red',
-  },
-  center: {
-    alignItems: 'center',
-    paddingTop: 30, // For iOS
+  center: { alignItems: 'center'},
+  red: { color: 'red'},
+  centerView: {
+    flex: 1,
+    flexDirection: 'column',
+    justifyContent: 'center',
+    alignItems: 'center'
   }
 });
