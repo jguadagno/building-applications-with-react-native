@@ -1,44 +1,53 @@
 import React, {Component} from 'react';
-import {Button, StyleSheet, View} from 'react-native';
+import {ScrollView, Image, Text, StyleSheet} from 'react-native';
 
-export default class ButtonBasics extends Component {
-  _onPressButton() {
-    alert('You tapped the button!');
-  }
-
+export default class IScrolledDownAndWhatHappenedNextShockedMe extends Component {
   render() {
+    //let uri = 'https://www.josephguadagno.net/assets/icons/favicon-96x96.png';
+    let uri = require('./img/favicon-96x96.png');
     return (
-      <View style={styles.container}>
-        <View style={styles.buttonContainer}>
-          <Button onPress={this._onPressButton} title="Press Me" />
-        </View>
-        <View style={styles.buttonContainer}>
-          <Button
-            onPress={this._onPressButton}
-            title="Press Me"
-            color="#841584"
-          />
-        </View>
-        <View style={styles.alternativeLayoutButtonContainer}>
-          <Button onPress={this._onPressButton} title="This looks great!" />
-          <Button onPress={this._onPressButton} title="OK!" color="#841584" />
-        </View>
-      </View>
+      <ScrollView>
+        <Text style={styles.largeFont}>This might go on for a bit</Text>
+        <Image source={uri} style={styles.image} />
+        <Image source={uri} style={styles.image} />
+        <Image source={uri} style={styles.image} />
+        <Image source={uri} style={styles.image} />
+        <Image source={uri} style={styles.image} />
+        <Text style={styles.largeFont}>If you like</Text>
+        <Image source={uri} style={styles.image} />
+        <Image source={uri} style={styles.image} />
+        <Image source={uri} style={styles.image} />
+        <Image source={uri} style={styles.image} />
+        <Image source={uri} style={styles.image} />
+        <Text style={styles.largeFont}>Scrolling down</Text>
+        <Image source={uri} style={styles.image} />
+        <Image source={uri} style={styles.image} />
+        <Image source={uri} style={styles.image} />
+        <Image source={uri} style={styles.image} />
+        <Image source={uri} style={styles.image} />
+        <Text style={styles.largeFont}>and see me...</Text>
+        <Image source={uri} style={styles.image} />
+        <Image source={uri} style={styles.image} />
+        <Image source={uri} style={styles.image} />
+        <Image source={uri} style={styles.image} />
+        <Image source={uri} style={styles.image} />
+        <Text style={styles.largeFont}>you are in the right place</Text>
+        <Image source={uri} style={styles.image} />
+        <Image source={uri} style={styles.image} />
+        <Image source={uri} style={styles.image} />
+        <Image source={uri} style={styles.image} />
+        <Image source={uri} style={styles.image} />
+      </ScrollView>
     );
   }
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
+  largeFont: {
+    fontSize: 96,
   },
-  buttonContainer: {
-    margin: 20,
-  },
-  alternativeLayoutButtonContainer: {
-    margin: 20,
-    flexDirection: 'row',
-    justifyContent: 'space-between',
+  image: {
+    width: 96,
+    height: 96,
   },
 });
