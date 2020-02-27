@@ -9,8 +9,22 @@ export default class HelloWorld extends Component {
   render() {
     return (
       <View style={styles.centerView}>
-        <Text style={styles.red}>Hello Event Name</Text>
+        <Text style={styles.red}>
+          Hello Event{'\n'}
+          <Greeting name="Joe" />
+          <Greeting name="Dee" />
+        </Text>
       </View>
+    );
+  }
+}
+
+class Greeting extends Component {
+  render() {
+    return (
+      <Text>
+        Hello {this.props.name}!{'\n'}
+      </Text>
     );
   }
 }
