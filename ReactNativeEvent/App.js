@@ -5,37 +5,14 @@ import {
   StyleSheet
 } from 'react-native';
 
-export default class HelloWorld extends Component {
+export default class FixedDimensionsBasics extends Component {
   render() {
     return (
-      <View style={styles.centerView}>
-        <Text style={styles.red}>
-          Hello Event{'\n'}
-          <Greeting name="Joe" />
-          <Greeting name="Dee" />
-        </Text>
+      <View>
+        <View style={{width: 50, height: 50, backgroundColor: 'powderblue'}} />
+        <View style={{width: 100, height: 100, backgroundColor: 'skyblue'}} />
+        <View style={{width: 150, height: 150, backgroundColor: 'steelblue'}} />
       </View>
     );
   }
 }
-
-class Greeting extends Component {
-  render() {
-    return (
-      <Text>
-        Hello {this.props.name}!{'\n'}
-      </Text>
-    );
-  }
-}
-
-const styles = StyleSheet.create({
-  center: { alignItems: 'center'},
-  red: { color: 'red'},
-  centerView: {
-    flex: 1,
-    flexDirection: 'column',
-    justifyContent: 'center',
-    alignItems: 'center'
-  }
-});
