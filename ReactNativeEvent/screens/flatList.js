@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {Text, View, ActivityIndicator, FlatList, Platform} from 'react-native';
 
-require('./services/array-extensions');
+require('../services/array-extensions');
 
 import {StyleSheet} from 'react-native';
 

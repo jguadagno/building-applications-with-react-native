@@ -1,26 +1,16 @@
 import React, {Component} from 'react';
-import {Text, View, ActivityIndicator, FlatList, Platform} from 'react-native';
+import {
+  StyleSheet,
+  Text,
+  View,
+  ActivityIndicator,
+  Platform,
+  SectionList,
+} from 'react-native';
 
-require('./services/array-extensions');
+require('../services/array-extensions');
 
-import {StyleSheet} from 'react-native';
-
-const styles = StyleSheet.create({
-  center: {
-    flex: 1,
-    justifyContent: 'center',
-  },
-  horizontal: {
-    flexDirection: 'row',
-    justifyContent: 'space-around',
-    padding: 10,
-  },
-  red: {
-    color: 'red',
-  },
-});
-
-export default class FlatListExample extends Component {
+export default class SectionListBasics extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -50,13 +40,16 @@ export default class FlatListExample extends Component {
 
     return (
       <View style={styles.container}>
-        <FlatList
-          data={this.state.userList}
-          keyExtractor={item => item.login.uuid}
+        <SectionList
+          sections={this.state.groupedUserList}
+          keyExtractor={(item, index) => item + index}
           renderItem={({item}) => (
             <Text style={styles.item}>
               {item.name.last}, {item.name.first}
             </Text>
+          )}
+          renderSectionHeader={({section: {title}}) => (
+            <Text style={styles.header}>{title}</Text>
           )}
         />
       </View>
@@ -80,7 +73,6 @@ export default class FlatListExample extends Component {
         var sectionListArray = sortedArray
           .map(x => x)
           .groupByIntoArray(user => user.lastInitial);
-        console.log('sectionListArray - ', sectionListArray.length);
 
         this.setState(
           {
@@ -96,3 +88,27 @@ export default class FlatListExample extends Component {
       });
   }
 }
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: 'center',
+  },
+  horizontal: {
+    flexDirection: 'row',
+    justifyContent: 'space-around',
+    padding: 10,
+  },
+  red: {
+    color: 'red',
+  },
+  item: {
+    backgroundColor: 'white',
+  },
+  header: {
+    fontSize: 32,
+    backgroundColor: 'azure',
+    paddingBottom: 5,
+    paddingTop: 10,
+  },
+});
