@@ -5,6 +5,9 @@ import {createStackNavigator} from '@react-navigation/stack';
 
 import {StyleSheet} from 'react-native';
 
+import FlatlistExample from './screens/flatList';
+import SectionListExample from './screens/sectionList';
+
 const styles = StyleSheet.create({
   center: {
     flex: 1,
@@ -28,6 +31,14 @@ function HomeScreen({navigation}) {
       <Button
         title="Go to Details"
         onPress={() => navigation.navigate('Details')}
+      />
+      <Button
+        title="Go to Flat List"
+        onPress={() => navigation.navigate('FlatList')}
+      />
+      <Button
+        title="Go to Section List"
+        onPress={() => navigation.navigate('SectionList')}
       />
     </View>
   );
@@ -59,6 +70,8 @@ function App() {
       <Stack.Navigator initialRouteName="Home">
         <Stack.Screen name="Home" component={HomeScreen} />
         <Stack.Screen name="Details" component={DetailsScreen} />
+        <Stack.Screen name="FlatList" component={FlatlistExample} />
+        <Stack.Screen name="SectionList" component={SectionListExample} />
       </Stack.Navigator>
     </NavigationContainer>
   );
